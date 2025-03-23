@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class CloudsMove : MonoBehaviour
 {
-    public float speed = 1f;
+    public float speed = 10f;
 
-    private Transform tr;
+    private RectTransform tr;
     private Vector2 backPosition;
 
     void Start()
     {
-        tr = GetComponent<Transform>();
-        backPosition = tr.position;
+        tr = GetComponent<RectTransform>();
+        backPosition = tr.anchoredPosition;
     }
 
     void Update()
@@ -21,12 +21,7 @@ public class CloudsMove : MonoBehaviour
     private void MoveCloud()
     {
         backPosition.x += speed * Time.deltaTime;
-        if (backPosition.x >= 6f) { backPosition.x = -6f; }
-        tr.position = backPosition;
-    }
-
-    public void downMove()
-    {
-
+        if (backPosition.x >= 1000f) { backPosition.x = -1000f; }
+        tr.anchoredPosition = backPosition;
     }
 }
