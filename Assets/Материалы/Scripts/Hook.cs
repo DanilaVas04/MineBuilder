@@ -12,7 +12,7 @@ public class Hook : MonoBehaviour
     public GameObject camera;
     public GameObject sky;
     public GameObject[] buttons;
-    public GameObject scoreObject;
+    public GameObject[] scoreObject;
 
     private Image image;
     private HingeJoint2D hingeJoint;
@@ -29,7 +29,6 @@ public class Hook : MonoBehaviour
         CreateBlock();
         targetPosition = new Vector2(camera.transform.position.x, camera.transform.position.y);
         skyColor = new Color(245 / 255f, 245 / 255f, 240 / 245f);
-        score = scoreObject.GetComponent<TextMeshProUGUI>();
     }
 
     public void CreateBlock()
@@ -77,6 +76,9 @@ public class Hook : MonoBehaviour
             isButton = false;
             hingeJoint.connectedBody = null;
             targetPosition = new Vector2(camera.transform.position.x, camera.transform.position.y - 1.1f);
+            score = scoreObject[0].GetComponent<TextMeshProUGUI>();
+            score.text = (int.Parse(score.text) + 10).ToString();
+            score = scoreObject[1].GetComponent<TextMeshProUGUI>();
             score.text = (int.Parse(score.text) + 10).ToString();
             StartCoroutine(WaitAndCreateBlock(2f));
         }      
