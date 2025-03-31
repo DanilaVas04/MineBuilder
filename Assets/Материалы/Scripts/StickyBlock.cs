@@ -11,5 +11,7 @@ public class StickyBlock : MonoBehaviour
             FixedJoint2D joint = gameObject.AddComponent<FixedJoint2D>();
             joint.connectedBody = collision.rigidbody;
         }
+        Rigidbody2D rigid = transform.GetComponent<Rigidbody2D>();
+        rigid.gravityScale = 0;
     }
 }

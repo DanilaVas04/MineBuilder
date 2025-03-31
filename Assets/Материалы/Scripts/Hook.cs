@@ -20,7 +20,7 @@ public class Hook : MonoBehaviour
     private Vector2 targetPosition;
     private float speed = 1f;
     private bool isButton = true;
-    private int l = 1;
+    private float l = 1;
     private Color skyColor;
     private TextMeshProUGUI score;
 
@@ -75,7 +75,7 @@ public class Hook : MonoBehaviour
         {
             isButton = false;
             hingeJoint.connectedBody = null;
-            targetPosition = new Vector2(camera.transform.position.x, camera.transform.position.y - 1.1f);
+            targetPosition = new Vector2(camera.transform.position.x, camera.transform.position.y - 1f);
             score = scoreObject[0].GetComponent<TextMeshProUGUI>();
             score.text = (int.Parse(score.text) + 10).ToString();
             score = scoreObject[1].GetComponent<TextMeshProUGUI>();
@@ -94,7 +94,7 @@ public class Hook : MonoBehaviour
     void Update()
     {
         camera.transform.position = Vector2.Lerp(camera.transform.position, targetPosition, speed * Time.deltaTime);
-        if (camera.transform.position.y<-9-l)
+        if (camera.transform.position.y<-l)
         {
             GameObject newSkyObject = Instantiate(sky, camera.transform);
             RectTransform rectTransform = newSkyObject.GetComponent<RectTransform>();
@@ -102,9 +102,9 @@ public class Hook : MonoBehaviour
             imageSky.color = skyColor;
             if (rectTransform != null)
             {
-                rectTransform.anchoredPosition = new Vector2(0, 2000+150*l);
+                rectTransform.anchoredPosition = new Vector2(0, 2100+200*l);
             }
-            l+=2;
+            l+=0.1f;
             if (skyColor.r>0)
             {
                 skyColor.r -= 1 / 255f;

@@ -23,5 +23,6 @@ public class CloudsMove : MonoBehaviour
         backPosition.x += speed * Time.deltaTime;
         if (backPosition.x >= 1000f) { backPosition.x = -1000f; }
         tr.anchoredPosition = backPosition;
+        transform.SetAsLastSibling();
     }
 }

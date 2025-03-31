@@ -1,0 +1,12 @@
+# ninja log v5
+221	10692	7647226012054402	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	c0cc67407c943a68
+159	10752	7647226012674170	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	106ef41919c1e8d2
+137	11194	7647226017121656	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	8bebffed2410ea48
+148	11592	7647226021439004	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	fce7290edcffe65d
+211	13402	7647226038938764	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	ee0f80a2d22ccfb3
+11194	13813	7647226043635699	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	bfff6385bbca9c70
+1	14194	7647226047953647	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	1bc1e8f6c4805855
+13814	17226	7647226071775630	A:/Projects/MineBuilder/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/5e1jk4h4/obj/arm64-v8a/libswappywrapper.so	8936f8239ac26c60
+10752	18345	7647226089731156	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	51ac1f3c95a131d7
+10701	18608	7647226092509708	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	fea4729d7060581d
+18608	18975	7647226096109507	A:/Projects/MineBuilder/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/5e1jk4h4/obj/arm64-v8a/libgame.so	766a5fa1f2fe2b0e
