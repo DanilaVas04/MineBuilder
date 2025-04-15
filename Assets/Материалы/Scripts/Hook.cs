@@ -49,7 +49,7 @@ public class Hook : MonoBehaviour
             }
             if (rectTransform != null)
             {
-                rectTransform.anchoredPosition = new Vector2(0, 0);
+                rectTransform.anchoredPosition = new Vector2(0, 10);
             }
 
             image = newObject.GetComponent<Image>();
@@ -104,7 +104,7 @@ public class Hook : MonoBehaviour
             {
                 rectTransform.anchoredPosition = new Vector2(0, 2100+200*l);
             }
-            l+=0.1f;
+            l+=3f;
             if (skyColor.r>0)
             {
                 skyColor.r -= 1 / 255f;
