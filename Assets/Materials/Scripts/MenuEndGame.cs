@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class MenuEndGame : MonoBehaviour
@@ -6,14 +7,18 @@ public class MenuEndGame : MonoBehaviour
     public GameObject hook;
     public GameObject[] buttons;
     public float speed = 1f;
-
+    private RectTransform rectTransform;
     private Vector2 targetPosition;
-
 
     private void Start()
     {
-        targetPosition = new Vector2(0, 0);
         isEnd = false;
+        rectTransform = GetComponent<RectTransform>();
+        Canvas canvas = GetComponentInParent<Canvas>();
+        if (canvas != null)
+        {
+            targetPosition = new Vector2(0, 0);
+        }
     }
 
     private void Update()
@@ -26,7 +31,7 @@ public class MenuEndGame : MonoBehaviour
                 button.SetActive(false);
             }
             transform.SetAsLastSibling();
-            transform.position = Vector2.Lerp(transform.position, targetPosition, speed * Time.deltaTime);
+            rectTransform.anchoredPosition = Vector2.Lerp(rectTransform.anchoredPosition, targetPosition, speed * Time.deltaTime);
         }
     }
 }
