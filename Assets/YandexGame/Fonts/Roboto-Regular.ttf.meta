@@ -1,14 +1,20 @@
 fileFormatVersion: 2
 guid: 82cc91725ab2f0c41920038a250d768b
+AssetOrigin:
+  serializedVersion: 1
+  productId: 235877
+  packageName: PluginYG - Yandex Game integration
+  packageVersion: 1.6.3
+  assetPath: Assets/YandexGame/Fonts/Roboto-Regular.ttf
+  uploadId: 682427
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
   fontSize: 16
-  forceTextureCase: -2
+  forceTextureCase: -1
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: Futura PT
   fontNames:
   - Futura PT
   fallbackFontReferences: []
@@ -20,10 +26,3 @@ TrueTypeFontImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 235877
-  packageName: PluginYG - Yandex Game integration
-  packageVersion: 1.6.3
-  assetPath: Assets/YandexGame/Fonts/Roboto-Regular.ttf
-  uploadId: 682427
