@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using YG;
 
 public class Manager : MonoBehaviour
 {
@@ -10,9 +11,9 @@ public class Manager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.H))
         {
-            Application.Quit();
+            YandexGame.ResetSaveProgress();
         }
     }
 }

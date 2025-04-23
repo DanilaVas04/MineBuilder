@@ -1,37 +1,48 @@
 using TMPro;
 using UnityEngine;
+using YG;
 
 public class MenuEndGame : MonoBehaviour
 {
     public static bool isEnd = false;
-    public GameObject hook;
+    public Hook hook;
     public GameObject[] buttons;
     public float speed = 1f;
-    private RectTransform rectTransform;
-    private Vector2 targetPosition;
+    public RectTransform rectTransform;
+    public Transform targetPosition;
+
+    public TMP_Text bestScoreText;
+    public TMP_Text bestScoreMenuText;
 
     private void Start()
     {
         isEnd = false;
         rectTransform = GetComponent<RectTransform>();
         Canvas canvas = GetComponentInParent<Canvas>();
-        if (canvas != null)
-        {
-            targetPosition = new Vector2(0, 0);
-        }
+        
+        bestScoreMenuText.text = YandexGame.savesData.bestScore.ToString();
     }
 
-    private void Update()
+    
+
+    public void GameOver()
     {
-        if (isEnd)
+        bestScoreText.text = YandexGame.savesData.bestScore.ToString();
+        if (hook.score > YandexGame.savesData.bestScore)
         {
-            hook.SetActive(false);
-            foreach (GameObject button in buttons)
-            {
-                button.SetActive(false);
-            }
-            transform.SetAsLastSibling();
-            rectTransform.anchoredPosition = Vector2.Lerp(rectTransform.anchoredPosition, targetPosition, speed * Time.deltaTime);
+            YandexGame.savesData.bestScore = hook.score;
+            YandexGame.SaveProgress();
+            YandexGame.NewLeaderboardScores("Record", hook.score);
+
         }
+        hook.gameObject.SetActive(false);
+        foreach (GameObject button in buttons)
+        {
+            button.SetActive(false);
+        }
+        transform.SetAsLastSibling();
+        //rectTransform.position = Vector2.Lerp(rectTransform.anchoredPosition, targetPosition, speed * Time.deltaTime);
+        rectTransform.position = targetPosition.position;
+
     }
 }

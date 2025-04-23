@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using TMPro;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class Hook : MonoBehaviour
 {
@@ -16,16 +17,26 @@ public class Hook : MonoBehaviour
     private bool isButton = true;
     private float l = 1;
     private Color skyColor;
-    private TextMeshProUGUI score;
+    private TextMeshProUGUI scoreText;
+    private TextMeshProUGUI scoreText_end;
     private Vector3 vector;
     private SpriteRenderer sprite;
+    public int score;
 
     void Start()
     {
         hingeJoint = transform.GetComponent<HingeJoint2D>();
         skyColor = new Color(255 / 255f, 255 / 255f, 255 / 255f);
+        score = 0;
+
+        scoreText = scoreObject[0].GetComponent<TextMeshProUGUI>();
+        
+        scoreText_end = scoreObject[1].GetComponent<TextMeshProUGUI>();
+        
         CreateBlock();       
     }
+
+    
 
     public void CreateBlock()
     {
@@ -53,11 +64,8 @@ public class Hook : MonoBehaviour
         {
             vector = new Vector2(background.transform.position.x, background.transform.position.y - 1.1f);
             isButton = false;
-            hingeJoint.connectedBody = null;           
-            score = scoreObject[0].GetComponent<TextMeshProUGUI>();
-            score.text = (int.Parse(score.text) + 10).ToString();
-            score = scoreObject[1].GetComponent<TextMeshProUGUI>();
-            score.text = (int.Parse(score.text) + 10).ToString();
+            hingeJoint.connectedBody = null;
+            score++;
             StartCoroutine(WaitAndCreateBlock(2f));
         }      
     }
@@ -71,6 +79,10 @@ public class Hook : MonoBehaviour
 
     void Update()
     {
+
+        scoreText.text = score.ToString();
+        scoreText_end.text = score.ToString();
+
         if (!isButton)
         {
             background.transform.position = Vector2.Lerp(background.transform.position, vector, speed * Time.deltaTime);           
